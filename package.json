@@ -1,0 +1,9 @@
+{
+  "name": "framewai",
+  "version": "1.0.0",
+  "description": "FramewAI - Workforce Mobility Operations Platform",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  }
+}
