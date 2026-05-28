@@ -1,10 +1,31 @@
 const http = require('http');
+const fs = require('fs');
+const path = require('path');
 
 const server = http.createServer((req, res) => {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('FramewAI - Workforce Mobility Operations');
+  if (req.url === '/Banner.png') {
+    const img = fs.readFileSync(path.join(__dirname, 'Banner.png'));
+    res.writeHead(200, {'Content-Type': 'image/png'});
+    res.end(img);
+    return;
+  }
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  res.end(`<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FramewAI — Workforce Mobility Operations</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#0d0d0f; min-height:100vh; display:flex; align-items:center; justify-content:center; }
+img { max-width:100%; max-height:100vh; object-fit:contain; }
+</style>
+</head>
+<body>
+<img src="/Banner.png" alt="FramewAI — Workforce Mobility Operations" />
+</body>
+</html>`);
 });
 
-server.listen(process.env.PORT || 3000, () => {
-  console.log('FramewAI server running');
-});
+server.listen(process.env.PORT || 3000);
