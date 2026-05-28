@@ -19,7 +19,7 @@ const server = http.createServer((req, res) => {
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { background:#0d0d0f; min-height:100vh; display:flex; align-items:center; justify-content:center; }
-img { max-width:100%; max-height:100vh; object-fit:contain; }
+img { width:100vw; height:100vh; object-fit:cover; position:fixed; top:0; left:0; }
 </style>
 </head>
 <body>
